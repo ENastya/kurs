@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@using Jmelosegui.Mvc.GoogleMap
+<h1>Контакты</h1>
+
+<address>
+    г. Владимир, ул. Несуществующая, д.64
+</address>
+
+<address>
+    <strong>Телефон:</strong>   <a href=""> +7 (4922) 11-22-33 </a> <br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com"> Support@enya.com</a>
+</address>
+<h5>Мы находимся здесь</h5>
+@(
+        Html.GoogleMap()
+            .Name("map")
+            .Height(500)
+            .ApiKey("AIzaSyDlqb7wGJyWi-JIkOkTd_vGXlGmh5ApSyM")
+            .Zoom(10)
+            .Center(c => c.Latitude(56.13333)
+                          .Longitude(40.41667))
+            .Markers(m => m.Add().Title("Еня-Тур"))
+)
+@section scripts
+    {
+    @(Html.GoogleMap().ScriptRegistrar())
+}

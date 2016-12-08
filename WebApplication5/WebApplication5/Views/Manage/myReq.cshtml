@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "myReq";
+}
+@model IEnumerable<mvcApplication.Models.Request>  
+
+
+<table  width="100%">
+    <tr>
+        <td>
+            <h4>Номер заявки</h4>
+        </td>
+        <td>
+            <h4>Тур</h4>
+        </td>
+        <td>
+            <h4>Статус</h4>
+        </td>
+    </tr>
+        @foreach (var item in Model)
+        {
+           
+            <tr>
+                <td>
+                     @Html.DisplayFor(modelItem => item.ID) 
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+</tr>
+           
+        }
+</table>

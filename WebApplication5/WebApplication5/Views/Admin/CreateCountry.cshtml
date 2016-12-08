@@ -1,0 +1,25 @@
+﻿@model mvcApplication.Models.Records
+
+@using (Html.BeginForm())
+{
+    <form action="/Adnin/CreateCountry" method="post">
+        <div>
+            <h4>Добавить страну</h4>
+            Название
+            <input type="text" name="Country" id="Country"/>
+            
+            Визовый режим
+            <select name="Visa" id="Visa" type="text">
+                <option>Нет</option>
+                <option>Да</option>
+            </select>
+            <input type="submit" value="Применить" class="btn btn-default" />
+        </div>
+       
+    </form>
+     
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>

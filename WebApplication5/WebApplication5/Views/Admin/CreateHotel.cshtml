@@ -1,0 +1,28 @@
+﻿@model mvcApplication.Models.Records
+
+@using (Html.BeginForm())
+{
+    <form action="/Adnin/CreateHotel" method="post">
+        <div>
+            <h4>Добавить страну</h4>
+            Название
+            <input type="text" name="Hotel" id="Hotel"/>
+            
+            Звезд
+            <select name="Stars" id="Stars" type="text">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <input type="submit" value="Применить" class="btn btn-default" />
+        </div>
+        
+    </form>
+     
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>

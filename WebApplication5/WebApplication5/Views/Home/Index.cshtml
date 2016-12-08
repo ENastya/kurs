@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<mvcApplication.Models.Records>
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+        <p><img src="@Html.DisplayFor(modelItem => item.Image)" , width="350" height="250"></p>
+        <p align="justify">
+            @Html.DisplayFor(modelItem => item.ShortDescription)
+        </p>
+        <h4> @Html.ActionLink("Подробнее", "Details", new { id = item.ID }) </h4>
+    </div>
+}

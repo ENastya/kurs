@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Tours";
+}
+@model IEnumerable<mvcApplication.Models.Records>
+
+<form action="/Home/Tours" method="post">
+<div>
+    <h4>Фильтр</h4>
+    Страна
+    <select name="Country" id="Country" type="text">
+        <option>Все</option>
+        @foreach (var item in Model)
+        {
+            <option> @Html.DisplayFor(modelItem => item.Country)</option>
+
+        }
+    </select>
+    Визовый режим 
+    <select name="Visa" id="Visa" type="text">
+        <option>Все</option>
+        <option>Нет</option>
+        <option>Да</option>
+    </select>
+    Горящий
+    <select name="Gor" id="Gor" type="text">
+        <option>Все</option>
+        <option>Нет</option>
+        <option>Да</option>
+    </select>
+    Звезд отеля от
+    <select name="Stars" id="Stars" type="text">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        
+    </select>
+    <input type="submit" value="Применить" class="btn btn-default" />
+</div>
+   
+</form>
+<table  id="example">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <h1> @Html.DisplayFor(modelItem => item.Name) </h1>
+                    <p><img src="@Html.DisplayFor(modelItem => item.Image)", width="350" height="250" ></p>
+                    <p> <h3> @Html.DisplayFor(modelItem => item.Country) </h3> </p>
+                    <p> <h3> @Html.DisplayFor(modelItem => item.gTour) </h3> </p>
+                    <p align="justify">    @Html.DisplayFor(modelItem => item.ShortDescription) </p>
+                    <h4> @Html.ActionLink("Подробнее", "Details", new { id = item.ID }) </h4>
+</td>
+            </tr>
+           
+        }
+</table>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+@model IEnumerable<mvcApplication.Models.Records>
+    <br\>
+        <h4>
+@Html.ActionLink("Добавить страну", "CreateCountry") | 
+@Html.ActionLink("Добавить тур", "Create") | 
+@Html.ActionLink("Добавить отель", "CreateHotel") | 
+@Html.ActionLink("Заявки", "Req")
+            </h4>
+        <br\>
+            <table id="example">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <h1> @Html.DisplayFor(modelItem => item.Name) </h1>
+                            <p> <h3> @Html.DisplayFor(modelItem => item.Country) </h3> </p>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                            @Html.ActionLink("Details", "Details", new { id = item.ID })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+
+
+                }
+            </table>

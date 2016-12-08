@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Details";
+}
+@model mvcApplication.Models.Records
+    @using (Html.BeginForm())
+    {
+    <form action="/Home/Details" method="post" >
+        <div class="form-horizontal">
+            <hr />
+
+                <p>
+                    <h1> @Html.DisplayFor(model => model.Name) </h1>
+                </p>
+                <p>
+                <p><img src="@Html.DisplayFor(model => model.Image)" , width="100%" height="100%"></p>
+                </p>
+
+                <p>
+                <p align="justify"> @Html.DisplayFor(model => model.FullDescription) </p>
+                </p>
+
+                <h4>
+                    <p>
+                        Страна:
+                        @Html.DisplayFor(model => model.Country)
+                    </p>
+
+                    <p>
+                        Отель:
+                        @Html.DisplayFor(model => model.Hotel)
+                    </p>
+
+                    <p>
+                        Цена:
+                        @Html.DisplayFor(model => model.Prise)
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.gTour)
+                    </p>
+                </h4>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Заказать" class="btn btn-default" />
+            </div>
+        }
+    </form>
+    }
+    <p>
+        @Html.ActionLink("Назад к списку", "Tours")
+    </p> 
+      
+   

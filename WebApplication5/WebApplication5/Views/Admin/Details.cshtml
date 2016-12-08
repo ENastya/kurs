@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Details";
+}
+@model mvcApplication.Models.Records
+    @using (Html.BeginForm())
+    {
+    <form action="/Home/Details" method="post" >
+        <div class="form-horizontal">
+            <hr />
+
+                <p>
+                    <h1> @Html.DisplayFor(model => model.Name) </h1>
+                </p>
+                <p>
+                <p><img src="@Html.DisplayFor(model => model.Image)" , width="10%" height="10%"></p>
+                </p>
+
+                <p>
+                    <h4>Полное описание:</h4>
+<p align="justify"> @Html.DisplayFor(model => model.FullDescription) </p>
+                </p>
+
+            <p>
+                <h4>Краткое описание:</h4>
+<p align="justify"> @Html.DisplayFor(model => model.ShortDescription) </p>
+            </p>
+
+                <h4>
+                    <p>
+                        Страна:
+                        @Html.DisplayFor(model => model.Country)
+                    </p>
+
+                    <p>
+                        Отель:
+                        @Html.DisplayFor(model => model.Hotel)
+                    </p>
+
+                    <p>
+                        Цена:
+                        @Html.DisplayFor(model => model.Prise)
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.gTour)
+                    </p>
+                </h4>
+        </div>
+    </form>
+    }
+    <p>
+        @Html.ActionLink("Назад к списку", "Index")
+    </p> 
+   
+

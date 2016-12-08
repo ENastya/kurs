@@ -1,0 +1,31 @@
+﻿@model mvcApplication.Models.Request
+
+<h1>Are you sure you want to do this?</h1>
+<div>
+    <hr />
+@using (Html.BeginForm())
+{
+    <form action="/Admin/ReqAction" method="post">
+        <div>
+            @Html.DisplayFor(modelItem => Model.ID)
+            @Html.DisplayFor(modelItem => Model.email)
+            @Html.DisplayFor(modelItem => Model.tour)
+            
+                Визовый режим
+                <select name="Status" id="Status" type="text">
+                    <option>Принять</option>
+                    <option>Отклонить</option>
+                </select>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="OK" class="btn btn-default" />
+                </div>
+            }
+</div>
+
+    </form>
+}
+</div>
